@@ -1,0 +1,18 @@
+// For this base structure, we'll use console. A more robust logger like Winston can be integrated here.
+
+export const logger = {
+  info: (message: string, meta?: unknown) => {
+    console.log(`[INFO] ${message}`, meta || '');
+  },
+  warn: (message: string, meta?: unknown) => {
+    console.warn(`[WARN] ${message}`, meta || '');
+  },
+  error: (message: string, meta?: unknown) => {
+    console.error(`[ERROR] ${message}`, meta || '');
+  },
+  debug: (message: string, meta?: unknown) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.debug(`[DEBUG] ${message}`, meta || '');
+    }
+  },
+};
